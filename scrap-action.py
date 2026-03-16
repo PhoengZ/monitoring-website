@@ -27,37 +27,38 @@ def compare(current, past):
     # difflib is better than checking index per index because difflib use LCS idea to approach this problem 
     # for example old content be [a,b,c,d] current content be [X,a,b,c,d] 
     # if using manual checking it will alert all line are new because old line != current content for each line
+    first_index = "" if len(past_split) == 0 else past_split[0] 
     d = difflib.Differ()
     # compare(a,b) a is old text and current text b will compare to a 
-    diff = d.compare(past_split, current_split)
+    diff = d.compare(past_split[1:], current_split)
 
     added_content = []
-
+    
     for line in diff:
         if line.startswith("+ "):
             added_content.append(line)
-    
-    return added_content
+    return (added_content, first_index)
 
 def loop():
     content = get_content(url, field)
     try:
-        with open(file, "r") as f:
+        with open(file, "r", encoding="utf-8-sig") as f:
             last_content = f.read().strip()
-            f.close()
     except FileNotFoundError as fe:
         print(f"File note found: {fe}")
         last_content = ""
     if content != last_content:
         print("Something Update")
-
-        with open(file, "w") as f:
-            f.write(content)
-            f.close()
-
-        add_content = compare(current=content, past=last_content)
+        add_content, th = compare(current=content, past=last_content)
         for change in add_content:
             print(f'มีการเปลี่ยนแปลงดังนี้: {change}')
+        idx = th.split()
+        idx[1] = int(idx[1])
+        with open(file, "w", encoding="utf-8-sig") as f:
+            print(f'------------------------')
+            content = f'การตรวจสอบครั้งที่ {idx[1] + 1} \n{content}'
+            f.write(content)
+            f.close()
 
 if __name__ == '__main__':
     loop()
