@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 import difflib
 from alert import alert_system
 
-url = "https://sites.google.com/view/ssukree/courses/2110571-neural-network-22025?authuser=0"
+url = ""
 field = "body"
 file = "last_file.txt"
 def get_content(url, select_field):
