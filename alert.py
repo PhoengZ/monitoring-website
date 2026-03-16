@@ -1,8 +1,12 @@
 import requests
 import time
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
-webhook_url = ""
+load_dotenv()
+
+webhook_url = os.getenv("DISCORD_WEBHOOK")
 MAX_LENGTH=1500
 
 def alert_system(update_content):

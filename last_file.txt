@@ -1,1 +1,98 @@
-﻿การตรวจสอบครั้งที่ 0
+﻿การตรวจสอบครั้งที่ 1
+Skip to main content
+Skip to navigation
+Sukree Sinthupinyo	
+Home2952706 Advanced EconometricsLab DataEA Public HearingData SetSchedule and Zoom linksAboutCourses
+	
+Neural Network (2/2025)
+
+Zoom Link: https://chula.zoom.us/j/7474759219
+
+Shared Drive: https://drive.google.com/drive/folders/158hhw0J95e5eHnrhN_rgwmt9jr9_7X3Y?usp=sharing 
+
+Course Schedule:
+
+5 Jan 26: Course Introduction (Brain System, Artificial Neuron) 
+
+12 Jan 26: Artificial Neuron Architecture (VDO Playlist) 
+
+19, 26 Jan 26: TLN Architecture (VDO Playlist, In-class Colab)
+
+19 Jan 26 In-class Colab (Link)
+
+Please focus on the following VDOs
+
+Dichotomies and Capacity of a Perceptron 
+
+Number of Regions Separated by Perceptrons  
+
+9 Feb 26, TLN Training+Supervised Learning  (1) (VDO Playlist)
+
+Spreadsheet (Link)
+
+Colab Error Surface (Link)
+
+9 Feb 26: TLN Training+Supervised Learning (2) (VDO Playlist)
+
+Training Gaussian Function (Colab)
+
+16 Feb 26: TLN Training+Supervised Learning (3) (VDO Playlist, Training Spreadsheet, Weiner Solution Colab) 
+
+23 Feb 26:Midterm (ไม่มีการเรียนการสอน มี Review ตอน 12:00) 
+
+2 Mar 26: Midterm สอบเวลา 13:00-15:00
+ประกาศห้องสอบ ตึก 3 ทั้งสามกลุ่ม
+ห้อง 306: 6430376521-6631308221
+ห้อง 418: 6631313321-6633032321
+ห้อง 420: 6633034621-6872081621
+
+9,16 Mar 26: Backpropagation Neural Network  (VDO Clips) 
+
+This one is not in the VDO. An analysis of a sigmoid unit https://colab.research.google.com/drive/1vdZjNpBia28fsHB5XoFJhs_eQnOpcTeM?usp=sharing 
+
+Tom Mitchell Slide: http://www.cs.cmu.edu/afs/cs.cmu.edu/project/theo-20/www/mlbook/ch4.pdf 
+
+30 Mar 26 Support Vector Machine  (VDO Clips, Colab)
+
+20 Apr 26 Self Organizing Feature Map (VDO Clips)
+
+27 Apr 26 Convolution Neural Network (VDO Clips), LSTM (VDO Clips), Transformer
+
+
+
+
+Grading System
+
+Midterm 35%
+
+Final 45%
+
+Closed book, Calculators are allowed
+
+Tablet, and Computer are "not"  allowed.
+
+Project 20%
+
+2-3 Members 
+
+Apply techniques in the class to a new data set
+
+Submit in a recorded VDO not longer than 10 minutes 
+
+Choose one of your interesting chapter 
+
+Demonstrate your understanding of that chapter 
+
+Slightly change the code and demonstrate the change  
+
+References:
+
+Kumar, S. (2013). Neural Networks: A Classroom Approach. India: McGraw-Hill.
+
+Russell, S. J., & Norvig, P. (2021). Artificial intelligence: A modern approach. Hoboken, NJ: Pearson.
+
+
+
+Page updated
+Google Sites
+Report abuse

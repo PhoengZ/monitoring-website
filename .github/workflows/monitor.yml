@@ -1,0 +1,34 @@
+name: Monitoring System to web professor Sukree
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with: 
+          python-version: 3.13.1
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirments.txt
+          playwright install chromium
+      
+      - name: Run monitoring script
+        env: 
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python scrap-action.py
+      
+      - name: commit and push changing
+        run: |
+          git add last_file.txt
+          git commit -m "Update last_file.txt [skip ci]" || echo "No changes"
+          git push
