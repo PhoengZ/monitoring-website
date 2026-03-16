@@ -1,7 +1,6 @@
-import time
-import requests
 from playwright.sync_api import sync_playwright
 import difflib
+from alert import alert_system
 
 url = "https://sites.google.com/view/ssukree/courses/2110571-neural-network-22025?authuser=0"
 field = "body"
@@ -35,7 +34,7 @@ def compare(current, past):
     
     for line in diff:
         if line.startswith("+ "):
-            added_content.append(line)
+            added_content.append(line[2:])
     return added_content
 
 def loop():
@@ -53,17 +52,22 @@ def loop():
     except FileNotFoundError:
         header = "การตรวจสอบครั้งที่ 0"
         past_web_content = ""
-    if content != past_web_content:
-        print("Something Update")
-        add_content= compare(current=content, past=past_web_content)
-        for change in add_content:
-            print(f'มีการเปลี่ยนแปลงดังนี้: {change}')
-        current_count = int(header.split()[-1])
-        with open(file, "w", encoding="utf-8-sig") as f:
-            print(f'------------------------')
-            content = f'การตรวจสอบครั้งที่ {current_count + 1}\n{content}'
-            f.write(content)
-            f.close()
+    try:
+        if content != past_web_content:
+            print("Something Update")
+            add_content= compare(current=content, past=past_web_content)
+            for change in add_content:
+                print(f'มีการเปลี่ยนแปลงดังนี้: {change}')
+            current_count = int(header.split()[-1])
+            with open(file, "w", encoding="utf-8-sig") as f:
+                print(f'------------------------')
+                content = f'การตรวจสอบครั้งที่ {current_count + 1}\n{content}'
+                f.write(content)
+        else:
+            add_content = ["ไม่มีการเปลี่ยนแปลง"]
+        alert_system(add_content)
+    except Exception as e:
+        print(f"Logging error for debugging: {e}")
 
 if __name__ == '__main__':
     loop()
