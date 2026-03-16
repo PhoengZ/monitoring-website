@@ -61,7 +61,7 @@ def loop():
             current_count = int(header.split()[-1])
             with open(file, "w", encoding="utf-8-sig") as f:
                 print(f'------------------------')
-                content = f'การตรวจสอบครั้งที่ {current_count + 1}\n{content}'
+                content = f'การเปลี่ยนแปลงครั้งที่ {current_count + 1}\n{content}'
                 f.write(content)
         else:
             add_content = ["ไม่มีการเปลี่ยนแปลง"]
