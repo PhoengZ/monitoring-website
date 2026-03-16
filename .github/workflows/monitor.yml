@@ -29,6 +29,8 @@ jobs:
       
       - name: commit and push changing
         run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
           git add last_file.txt
           git commit -m "Update last_file.txt [skip ci]" || echo "No changes"
           git push
