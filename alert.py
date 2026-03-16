@@ -1,6 +1,6 @@
 import requests
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import os
 from dotenv import load_dotenv
 
@@ -11,8 +11,9 @@ MAX_LENGTH=1500
 
 def alert_system(update_content):
     idx = 0
-    now = datetime.now()
-    formatted_now = now.strftime("%d/%m/%Y %H:%M:%S")
+    now_th = datetime.now(timezone.utc) + timedelta(hours=7)
+    
+    formatted_now = now_th.strftime("%d/%m/%Y %H:%M:%S")
     content = f'ตรวจสอบวันที่เวลา: {formatted_now}\n'
     while (idx < len(update_content)):
         for i in range(idx, len(update_content)):
