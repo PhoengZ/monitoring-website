@@ -1,0 +1,39 @@
+name: Monitoring System to web professor Sukree
+
+on:
+  # If you want to automate run code at time that you want decomment code under this line
+  # schedule:
+    # - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with: 
+          python-version: 3.13.1
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+      
+      - name: Run monitoring script
+        env: 
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python scrap-action.py
+      
+      - name: commit and push changing
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add last_file.txt
+          git commit -m "Update last_file.txt [skip ci]" || echo "No changes"
+          git push
